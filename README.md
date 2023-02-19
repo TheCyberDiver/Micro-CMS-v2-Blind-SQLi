@@ -10,7 +10,7 @@ I. Introduction
     finding and exploiting vulnerabilities, as well as their ability to analyze application behavior and logic to
     infer the content of the database. Blind SQLi challenges can vary in complexity and difficulty, ranging from
     basic Boolean-based techniques to more advanced techniques involving time delays, error messages, and other
-    indicators.
+    indicators. This lab is made by hacker101 and will be going over one flag.
 
 II. Information Gathering
 
@@ -62,10 +62,6 @@ III. Exploitation
     condition is true. This would be better if the default login creds message was standard
     ~~~
     
-
-    
-    
-
 IV. Flag Retrieval
 
     After you have retrieved the username/password you are able to login and are presented with a flag. 
