@@ -73,6 +73,7 @@ IV. Flag Retrieval
 V. Conclusion/Mitigation
 
     In summary I was able to use Blind SQLi to enumerate database contents and gain credentials to an admins account.
-    For mitigation I would sanitize user input before passing it to the database and use parameterized queries. I would also give a single 
-    generic message when trying to login like "unknown login credentials" instead of "Unknown Username" and "Invalid password". Even if SQLi
-    wasn't present the ungeneric error messages would lead to username enumeration.
+    For mitigation I would sanitize user input before passing it to the database and use parameterized queries. 
+    I would also give a single generic message when trying to login like "unknown login credentials" instead of
+    "Unknown Username" and "Invalid password". Even if SQLi wasn't present the ungeneric error messages would lead
+    to username enumeration.
