@@ -2,7 +2,7 @@
 
 I. Introduction
 
-    Briefly explain what Blind SQLi is and why it's used in CTF challenges
+    Blind SQL injection (SQLi) is a type of SQL injection attack where an attacker can infer the content of the    database without directly extracting the data. This is achieved by sending crafted SQL queries to the application and analyzing the response of the server, without actually seeing the database content. Blind SQLi is commonly used in CTF (Capture the Flag) challenges as a way to test the ability of participants to exploit vulnerabilities in web applications. By exploiting Blind SQLi, participants can demonstrate their skills in finding and exploiting vulnerabilities, as well as their ability to analyze application behavior and logic to infer the content of the database. Blind SQLi challenges can vary in complexity and difficulty, ranging from basic Boolean-based techniques to more advanced techniques involving time delays, error messages, and other indicators.
     Introduce the specific Blind SQLi challenge and the objective (finding a single flag)
 
 II. Information Gathering
