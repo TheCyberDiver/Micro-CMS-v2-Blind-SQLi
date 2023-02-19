@@ -75,4 +75,4 @@ V. Conclusion/Mitigation
     I would also give a single generic message when trying to login like "unknown login credentials" instead of
     "Unknown Username" and "Invalid password". Even if SQLi wasn't present the ungeneric error messages would lead
     to username enumeration. Additionally the JWT being used has admin:true as the body and that could be a potential
-    vulnerability. This has not been checked yet but would be in a real test
+    vulnerability but since this is a CTF and not a real test we will leave it alone.
