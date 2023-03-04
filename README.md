@@ -55,6 +55,7 @@ III. Exploitation
     ~~~  
     
     Other Avenues for exploiting VIA TIME BASED AND UNION SELECT:
+    ' UNION SELECT "xyz" as password FROM admins where ''='';--
     NOTE: Union Select will be used for another flag
     ~~~
     Payload1: ' OR (UNION SELECT NULL#) // This also doesn't give us an error but adding a second NULL value errors
